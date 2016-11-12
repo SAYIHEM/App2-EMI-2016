@@ -9,6 +9,7 @@ import java.io.Serializable;
 public class Contacts implements Serializable{
 
     private String titel, forename, surname, adress, city, zip, country;
+    private int ID;
 
     public Contacts(String titel, String forename, String surname, String adress, String city, String zip, String country) {
 
@@ -75,6 +76,16 @@ public class Contacts implements Serializable{
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public int getID() {
+
+        return this.ID;
+    }
+
+    public void setID(int ID) {
+
+        this.ID = ID;
     }
 
     public String toString() {

@@ -3,39 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="d238d67dcbb9517d77c8341ecb61bc5804eadedb">
-        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_b0da7672655a1ec471e4f27812094d593e25c796/classes.dex" />
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_5816d31ade72b9e5d007c45f960f28b37ce69a44/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="56bcde33c391d3dc11e0cd92afeeedb2876c1751">
-        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_bcbea0f0ffaa6178c96464167176658e9c245e28/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
-        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_91c9486119740aebc3063ea64023e815d0a4b072/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_f5ba681573c4782b0b66d9cf4fc84be3b63ff9ed/classes.dex" />
+        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_c707125aab6cfd45d0d3489c551a54a1e2c092e5/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -44,61 +26,79 @@
         optimize="true"
         revision="23.0.3"
         sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_d925deecb99328a52bc2a311b4e63ad91bf2b76d/classes.dex" />
+        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_d925deecb99328a52bc2a311b4e63ad91bf2b76d/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_d47e03f299eae023d34ec97934c2fbbe352dc022/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_75969703ddf859b8311851268c5f5e92659a159c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
-        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_feeb0234f035f58be8dc9215085f97420e9c424e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/libs/xstream-1.4.7.jar"
+        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/libs/xstream-1.4.7.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="bce3282142b63068260f021fcbe48b72e8d71a1a">
-        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/transforms/dex/debug/folders/1000/2/xstream-1.4.7_062a7641a8c6aec36d7ec31226be1bac56b97c1e/classes.dex" />
+        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/2/xstream-1.4.7_e4245787c63056f1a4d61bd1e5ecccc425024075/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_8a8f611df197a25a8645e3203c01285a2f7949a5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="22aab74b7c8952d22ee8576e07aa18e925955218">
+        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_51dbaabeadac74960fa55f60917081b3ce836495/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_836cc43a72b56411105e7c83598f404627f87b65/classes.dex" />
+        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_b2f59eb8b81c6a4d37ae49790ce08b71ad50ba01/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_0fdca4bd595b1a1993749f15c43f2ae6eecfac0e/classes.dex" />
+        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_c48fcbfe4396c7034e7da59974e5bfd9bef5c734/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_e4171c305c6f48352c7fe679cb35d8fef57cca9e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4d3ee3655acd6169cb51c28785e5c18402b8edfc">
+        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_75c464aad0b5cb932ed697ba125eb9d22d983de0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_1c6bf211e9044b9e254de8388fd0d91dba296ae5/classes.dex" />
     </item>
 
 </items>

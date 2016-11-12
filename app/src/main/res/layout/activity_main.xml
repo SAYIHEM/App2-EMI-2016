@@ -25,25 +25,259 @@
             android:src="@drawable/dresden_concept_logo"
             android:scaleType="fitEnd" android:layout_alignParentBottom="true" android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"/>
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Contact Management App"
-            android:id="@+id/textView" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"/>
-    <Spinner
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/imageView2"
+        android:layout_below="@+id/tableLayout"
+        android:id="@+id/tableEdit">
+
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinnerContacts"
-            android:layout_below="@+id/textView" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" android:layout_marginTop="20dp"
-    />
+            android:layout_height="match_parent" >
+
+            <Button
+                android:text="Edit Here"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tableLayout"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/btnEditHere"
+                android:layout_alignRight="@+id/editText3"
+                android:layout_alignEnd="@+id/editText3"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+
+                android:textSize="18dp"
+
+                android:layout_weight="1"
+                android:height="40dp"
+                android:hapticFeedbackEnabled="false"
+                android:minHeight="0dp"
+                android:textStyle="bold"
+                android:elegantTextHeight="false"
+                android:foregroundGravity="center_horizontal" />
+
+            <Button
+                android:text="Save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnSave"
+                android:layout_alignBaseline="@+id/btnEditHere"
+                android:layout_alignBottom="@+id/btnEditHere"
+                android:layout_toRightOf="@+id/btnEditHere"
+                android:layout_toEndOf="@+id/btnEditHere"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="18dp"
+
+                android:layout_weight="1"
+                android:enabled="false"
+                android:height="40dp"
+                android:minHeight="0dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:text="Edit..."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnEdit"
+                android:layout_alignBaseline="@+id/btnSave"
+                android:layout_alignBottom="@+id/btnSave"
+                android:layout_toRightOf="@+id/btnSave"
+                android:layout_toEndOf="@+id/btnSave"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="18dp"
+
+                android:layout_weight="1"
+                android:height="40dp"
+                android:minHeight="0dp"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_marginBottom="0dp">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:inputType="textPersonName"
+                android:text="Title"
+                android:ems="10"
+                android:id="@+id/editTitle"
+                android:layout_below="@+id/editSurname"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="15dp"
+                android:layout_column="0" android:layout_marginRight="7dp"
+                android:layout_weight="0.3"
+                android:visibility="invisible" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:inputType="textPersonName"
+                android:text="Title"
+                android:ems="10"
+                android:id="@+id/editForename"
+                android:layout_below="@+id/editText3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
+                android:layout_column="1" android:layout_marginRight="7dp"
+                android:layout_weight="0.1"
+                android:visibility="invisible" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:inputType="textPersonName"
+                android:text="Title"
+                android:ems="10"
+                android:id="@+id/editSurname"
+                android:layout_below="@+id/editForename"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
+
+                android:layout_column="2" android:layout_marginRight="7dp"
+                android:layout_weight="0.1"
+                android:visibility="invisible" />
+ />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_marginBottom="0dp">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:id="@+id/editAdress"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
+
+                android:layout_column="0" android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:visibility="invisible" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_marginBottom="0dp">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:id="@+id/editCity"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
+
+                android:layout_column="0" android:layout_marginRight="7dp"
+                android:layout_weight="0.7"
+                android:visibility="invisible" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:id="@+id/editZip"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
+
+                android:layout_column="1" android:layout_marginRight="7dp"
+                android:layout_weight="1.1"
+                android:visibility="invisible" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:inputType="textPersonName"
+                android:text="Name"
+                android:ems="10"
+                android:id="@+id/editCountry"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="15dp"
+                android:layout_weight="0.3"
+
+                android:layout_column="0" android:layout_marginRight="7dp"
+                android:visibility="invisible" /><![CDATA[
+
+            />
+        ]]>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_marginBottom="0dp">
+
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tablelayout"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:id="@+id/tableRow"
+            android:layout_height="40dp">
+
+            <Spinner
+                    android:layout_width="wrap_content"
+                android:id="@+id/spinnerContacts"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_weight="100"
+
+                android:layout_height="40dp" />
+
+            <Button
+                android:text="Share"
+                android:layout_width="wrap_content"
+                android:id="@+id/btnShare"
+                android:layout_toRightOf="@+id/spinnerContacts"
+                android:layout_toEndOf="@+id/spinnerContacts"
+                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+
+
+                android:visibility="invisible" />
+        </TableRow>
+
+    </TableLayout>
+
     <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_below="@+id/spinnerContacts"
-            android:layout_alignParentLeft="true" android:layout_alignParentStart="true" android:id="@+id/tableLayout">
+            android:layout_height="wrap_content"
+        android:id="@+id/tableLayout"
+        android:layout_below="@+id/tablelayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
         <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:layout_marginBottom="5dp">
@@ -99,6 +333,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Medium Text"
+                    android:layout_weight="1"
                     android:id="@+id/textViewAddress" android:layout_column="1" android:layout_span="4"
                     android:textColor="@color/tuAkzentfarbe1BlauHell"/>
         </TableRow>
@@ -147,173 +382,20 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Medium Text"
+                    android:layout_weight="1"
                     android:id="@+id/textViewCountry" android:layout_column="1" android:layout_span="4"
                     android:textColor="@color/tuAkzentfarbe1BlauHell"/>
         </TableRow>
     </TableLayout>
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Contact Management App"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/imageView2"
-        android:layout_below="@+id/tableLayout"
-        android:id="@+id/tableEdit">
+        android:layout_alignParentStart="true" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <Button
-                android:text="Edit Here"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tableLayout"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:id="@+id/btnEditHere"
-                android:layout_alignRight="@+id/editText3"
-                android:layout_alignEnd="@+id/editText3"
-                android:layout_weight="1"/>
-
-            <Button
-                android:text="Save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnSave"
-                android:layout_alignBaseline="@+id/btnEditHere"
-                android:layout_alignBottom="@+id/btnEditHere"
-                android:layout_toRightOf="@+id/btnEditHere"
-                android:layout_toEndOf="@+id/btnEditHere"
-                android:layout_weight="1"
-                android:visibility="invisible" />
-
-            <Button
-                android:text="Edit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnEdit"
-                android:layout_alignBaseline="@+id/btnSave"
-                android:layout_alignBottom="@+id/btnSave"
-                android:layout_toRightOf="@+id/btnSave"
-                android:layout_toEndOf="@+id/btnSave"
-                android:layout_weight="1"/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_marginBottom="0dp">
-
-            <EditText
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:inputType="textPersonName"
-                android:text="Title"
-                android:ems="10"
-                android:id="@+id/editTitle"
-                android:layout_below="@+id/editSurname"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_column="0" android:layout_marginRight="7dp"
-                android:layout_weight="0.5"
-                android:visibility="invisible" />
-
-            <EditText
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:inputType="textPersonName"
-                android:text="Title"
-                android:ems="10"
-                android:id="@+id/editForename"
-                android:layout_below="@+id/editText3"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_column="1" android:layout_marginRight="7dp"
-                android:layout_weight="0.1"
-                android:visibility="invisible" />
-
-            <EditText
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:inputType="textPersonName"
-                android:text="Title"
-                android:ems="10"
-                android:id="@+id/editSurname"
-                android:layout_below="@+id/editForename"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_column="2" android:layout_marginRight="7dp"
-                android:layout_weight="0.1"
-                android:visibility="invisible" />
- />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_marginBottom="0dp">
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:ems="10"
-                android:id="@+id/editAdress"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_column="0" android:layout_marginRight="7dp"
-                android:layout_weight="1"
-                android:visibility="invisible" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_marginBottom="0dp">
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:ems="10"
-                android:id="@+id/editCity"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_column="0" android:layout_marginRight="7dp"
-                android:layout_weight=".1"
-                android:visibility="invisible" />/>
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:ems="10"
-                android:id="@+id/editZip"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_column="1" android:layout_marginRight="7dp"
-                android:layout_weight=".1"
-                android:visibility="invisible" />/>
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:layout_marginBottom="5dp">
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="Name"
-                android:ems="10"
-                android:id="@+id/editCountry"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_column="0" android:layout_marginRight="7dp"
-                android:visibility="invisible" />
-        </TableRow>
-    </TableLayout>
-
-  </RelativeLayout>
+</RelativeLayout>
