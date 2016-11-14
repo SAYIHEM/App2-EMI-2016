@@ -52,7 +52,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="22aab74b7c8952d22ee8576e07aa18e925955218">
+        sha1="9421216dd87ff4f2475a7fc83ca20e7035d4d019">
         <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_51dbaabeadac74960fa55f60917081b3ce836495/classes.dex" />
     </item>
     <item
@@ -88,7 +88,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="4d3ee3655acd6169cb51c28785e5c18402b8edfc">
+        sha1="349fec742ece12440f65bccf44e7c3e8422af1aa">
         <dex dex="/home/tomg/Dropbox/study/1.sem/emi/u/app-2_3/repository/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_75c464aad0b5cb932ed697ba125eb9d22d983de0/classes.dex" />
     </item>
     <item

@@ -266,7 +266,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
 
 
-                android:visibility="invisible" />
+                android:visibility="visible" />
         </TableRow>
 
     </TableLayout>

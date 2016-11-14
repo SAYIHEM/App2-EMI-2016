@@ -26,6 +26,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.nio.CharBuffer;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -42,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
     private Button
             btnEditHere,
             btnSave,
-            btnEdit;
+            btnEdit,
+            btnShare;
     private EditText
             editTitle,
             editForename,
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             editCountry;
 
     private Contacts shownContact = null;
+    private ArrayList<Contacts> contactContainer;
     private String oldContactName;
 
     private boolean debug = true;
@@ -79,11 +83,13 @@ public class MainActivity extends AppCompatActivity {
      */
     private void InitializeApp() throws IOException {
 
+
+        // Creating XStream for Converting from/to XML
         final XStream xStream = new XStream();
         xStream.alias("contact", Contacts.class);
 
 
-
+        /**** INIT of Buttons etc. ****/
 
         spContacts = (Spinner) findViewById(R.id.spinnerContacts);
 
@@ -95,10 +101,10 @@ public class MainActivity extends AppCompatActivity {
         tvCity = (TextView) findViewById(R.id.textViewCity);
         tvCountry = (TextView) findViewById(R.id.textViewCountry);
 
-
         btnEditHere = (Button) findViewById(R.id.btnEditHere);
         btnSave = (Button) findViewById(R.id.btnSave);
         btnEdit = (Button) findViewById(R.id.btnEdit);
+        btnShare = (Button) findViewById(R.id.btnShare);
 
         editTitle = (EditText) findViewById(R.id.editTitle);
         editForename = (EditText) findViewById(R.id.editForename);
@@ -108,112 +114,80 @@ public class MainActivity extends AppCompatActivity {
         editZip = (EditText) findViewById(R.id.editZip);
         editCountry = (EditText) findViewById(R.id.editCountry);
 
-        Contacts c1 = null;
-        Contacts c2 = null;
-        Contacts c3 = null;
-        Contacts c4 = null;
-        Contacts c5 = null;
+        /****   END   ****/
 
+        this.contactContainer = new ArrayList<Contacts>();
 
+        // Check if XML-files exist, loading or creating them
         File file;
-        String fileName, filePath;
-        for (int i = 1; i <= 5; i++) {
+        String filePath;
+        Contacts[] contactArray = null;
 
-            fileName = "c" + Integer.toString(i) + ".xml";
-            filePath = "/data/data/de.davidgollasch.emiexercise2/files/" + "c" + Integer.toString(i) + ".xml";
+        filePath = "/data/data/de.davidgollasch.emiexercise2/files/contacts.xml";
 
-            file = new File(filePath);
+        file = new File(filePath);
+        if (file.exists()) {
 
-            if (file.exists()) {
+            try {
 
-                try {
+                this.contactContainer = (ArrayList<Contacts>) xStream.fromXML(MainActivity.getStringFromFile(filePath));
 
-                    switch (i) {
+                contactArray = new Contacts[this.contactContainer.size()];
+                for (int i = 0; i < contactArray.length; i++) {
 
-                        case(1): c1 = (Contacts) xStream.fromXML(MainActivity.getStringFromFile(filePath));
-                        case(2): c2 = (Contacts) xStream.fromXML(MainActivity.getStringFromFile(filePath));
-                        case(3): c3 = (Contacts) xStream.fromXML(MainActivity.getStringFromFile(filePath));
-                        case(4): c4 = (Contacts) xStream.fromXML(MainActivity.getStringFromFile(filePath));
-                        case(5): c5 = (Contacts) xStream.fromXML(MainActivity.getStringFromFile(filePath));
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    contactArray[i] = this.contactContainer.get(i);
                 }
 
-            } else {
-
-                // Filling the contacts
-                c1 = new Contacts("Herr", "Robert", "Meyer", "Apfelbergstraße 10", "St. Margrethen", "9430", "Schweiz");
-                c2 = new Contacts("Frau", "Elisabeth", "Stramm", "Fritz-Konzert-Straße 1a", "Innsbruck", "6020", "Österreich");
-                c3 = new Contacts("Herr", "Stefan", "Wennige", "Kirchplatz 13", "Wattens", "6112", "Österreich");
-                c4 = new Contacts("Frau", "Ella", "Beckmann", "Falkenstraße 3", "Dresden", "01067", "Deutschland");
-                c5 = new Contacts("Frau", "Anne", "Watson", "1 Langdon Park Rd", "London", "N6 5PS", "Vereinigtes Königreich");
-
-                // Giving contacts a ID
-                c1.setID(1);
-                c2.setID(2);
-                c3.setID(3);
-                c4.setID(4);
-                c5.setID(5);
-
-                /**** Creating XML files ****/
-
-                String xml;
-                FileOutputStream fOut;
-
-                xml = xStream.toXML(c1);
-                fOut = this.openFileOutput("c1.xml", Context.MODE_PRIVATE);
-                fOut.write(xml.getBytes());
-                fOut.close();
-
-                xml = xStream.toXML(c2);
-                fOut = this.openFileOutput("c2.xml", Context.MODE_PRIVATE);
-                fOut.write(xml.getBytes());
-                fOut.close();
-
-                xml = xStream.toXML(c3);
-                fOut = this.openFileOutput("c3.xml", Context.MODE_PRIVATE);
-                fOut.write(xml.getBytes());
-                fOut.close();
-
-                xml = xStream.toXML(c4);
-                fOut = this.openFileOutput("c4.xml", Context.MODE_PRIVATE);
-                fOut.write(xml.getBytes());
-                fOut.close();
-
-                xml = xStream.toXML(c5);
-                fOut = this.openFileOutput("c5.xml", Context.MODE_PRIVATE);
-                fOut.write(xml.getBytes());
-                fOut.close();
-
-                /**** END ****/
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+
+        } else {
+
+            // Filling the contacts
+            Contacts c1 = new Contacts("Herr", "Robert", "Meyer", "Apfelbergstraße 10", "St. Margrethen", "9430", "Schweiz");
+            Contacts c2 = new Contacts("Frau", "Elisabeth", "Stramm", "Fritz-Konzert-Straße 1a", "Innsbruck", "6020", "Österreich");
+            Contacts c3 = new Contacts("Herr", "Stefan", "Wennige", "Kirchplatz 13", "Wattens", "6112", "Österreich");
+            Contacts c4 = new Contacts("Frau", "Ella", "Beckmann", "Falkenstraße 3", "Dresden", "01067", "Deutschland");
+            Contacts c5 = new Contacts("Frau", "Anne", "Watson", "1 Langdon Park Rd", "London", "N6 5PS", "Vereinigtes Königreich");
+
+            // Giving contacts a ID
+            c1.setID(1);
+            c2.setID(2);
+            c3.setID(3);
+            c4.setID(4);
+            c5.setID(5);
+
+            // Filling contactContainer
+            this.contactContainer.add(c1);
+            this.contactContainer.add(c2);
+            this.contactContainer.add(c3);
+            this.contactContainer.add(c4);
+            this.contactContainer.add(c5);
+
+            /**** Creating XML file ****/
+
+            String xml;
+            FileOutputStream fOut;
+
+            xml = xStream.toXML(this.contactContainer);
+            fOut = this.openFileOutput("contacts.xml", Context.MODE_PRIVATE);
+            fOut.write(xml.getBytes());
+            fOut.close();
+
+            /****    END    ****/
+
+            // init and fill array
+           contactArray = new Contacts[] {c1, c2, c3, c4, c5};
         }
 
 
-        // init and fill array
-        Contacts[] contactArray = new Contacts[] {c1, c2, c3, c4, c5};
 
         //init adapter
         ArrayAdapter<Contacts> adapter = new ArrayAdapter<Contacts>(this, android.R.layout.simple_spinner_item, contactArray);
 
         // filling
         spContacts.setAdapter(adapter);
-
-
-        /*
-        Herr Robert Meyer       Frau Elisabeth Stramm       Herr Stefan Wennige
-        Apfelbergstraße 10      Fritz-Konzert-Straße 1a     Kirchplatz 13
-        9430 St. Margrethen     6020 Innsbruck              6112 Wattens
-        Schweiz                 Österreich                  Österreich
-
-
-        Frau Ella Beckmann      Frau Anne Watson
-        Falkenstraße 3          1 Langdon Park Rd
-        01067 Dresden           London N6 5PS
-        Deutschland             Vereinigtes Königreich
-        */
 
 
         spContacts.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -225,10 +199,6 @@ public class MainActivity extends AppCompatActivity {
                 TextView item = (TextView) view;
                 String selectedName = item.getText().toString();
 
-                /*
-
-                Let's show the contact's details:
-                 */
                 DisplayContactDetails(selectedName);
             }
 
@@ -306,37 +276,39 @@ public class MainActivity extends AppCompatActivity {
 
                 /**** Saving Contact to XML ****/
 
-                String fileName;
-                String filePath;
+                String filePath = "/data/data/de.davidgollasch.emiexercise2/files/contacts.xml";
 
-                for (int i = 1; i <= 5; i++) {
+                try {
 
-                    fileName = "c" + Integer.toString(i) + ".xml";
-                    filePath = "/data/data/de.davidgollasch.emiexercise2/files/" + "c" + Integer.toString(i) + ".xml";
+                    contactContainer = (ArrayList<Contacts>) xStream.fromXML(getStringFromFile(filePath));
 
-                    try {
+                    ArrayList<Contacts> clonedContainer = (ArrayList<Contacts>) ((ArrayList<Contacts>) contactContainer).clone();
+                    contactContainer.clear();
 
-                        Contacts parsedContact = (Contacts) xStream.fromXML(getStringFromFile(filePath));
+                    for (int i = 0; i < clonedContainer.size(); i++) {
 
-                        if (parsedContact.getID() == shownContact.getID()) {
+                        if (clonedContainer.get(i).getID() == shownContact.getID()) {
 
+                            contactContainer.add(shownContact);
 
-                            String xml;
-                            FileOutputStream fOut;
+                        } else {
 
-                            xml = xStream.toXML(shownContact);
-                            fOut = MainActivity.this.openFileOutput(fileName, Context.MODE_PRIVATE);
-                            fOut.write(xml.getBytes());
-                            fOut.close();
+                            contactContainer.add(clonedContainer.get(i));
                         }
-
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (Exception e) {
-                        e.printStackTrace();
                     }
+
+                    String xml;
+                    FileOutputStream fOut;
+
+                    xml = xStream.toXML(contactContainer);
+                    fOut = MainActivity.this.openFileOutput("contacts.xml", Context.MODE_PRIVATE);
+                    fOut.write(xml.getBytes());
+                    fOut.close();
+
+                    //System.out.println(xml);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
 
                 /**** END ****/
@@ -349,6 +321,24 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 startEditContactActivity();
+            }
+        });
+
+
+        btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String toSend = shownContact.getTitel() + " " + shownContact.toString() + "\n" +
+                                shownContact.getAdress() + "\n" +
+                                shownContact.getCity() + " " + shownContact.getZip() + "\n" +
+                                shownContact.getCountry();
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, toSend);
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
             }
         });
     }
@@ -405,7 +395,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == EDIT_CONTACT) {
-            // Make sure the request was successful
+
             if (resultCode == RESULT_OK) {
 
                 shownContact = (Contacts) data.getSerializableExtra("contact");
@@ -413,7 +403,6 @@ public class MainActivity extends AppCompatActivity {
 
                 int i;
                 SpinnerAdapter adapter = spContacts.getAdapter();
-
 
                 Contacts contactArray[] = new Contacts[adapter.getCount()];
 
@@ -433,7 +422,10 @@ public class MainActivity extends AppCompatActivity {
                 spContacts.setSelection(arrayAdapter.getPosition(shownContact));
             }
         }
+
     }
+
+
 
     public static String convertStreamToString(InputStream is) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));

@@ -20,11 +20,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.CharBuffer;
+import java.util.ArrayList;
 
 
 public class EditContactActivity extends AppCompatActivity {
 
-    private Contacts contact;
+    private Contacts shownContact;
 
     private EditText
             editTitle,
@@ -37,6 +38,7 @@ public class EditContactActivity extends AppCompatActivity {
     private Button
             btnSave;
     private String oldName;
+    private ArrayList<Contacts> contactContainer;
 
     private boolean debug = true;
 
@@ -45,8 +47,8 @@ public class EditContactActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_contact);
 
-        contact = (Contacts) getIntent().getSerializableExtra("contact");
-        oldName = contact.toString();
+        shownContact = (Contacts) getIntent().getSerializableExtra("contact");
+        oldName = shownContact.toString();
 
         final XStream xStream = new XStream();
         xStream.alias("contact", Contacts.class);
@@ -66,13 +68,13 @@ public class EditContactActivity extends AppCompatActivity {
 
         btnSave = (Button) findViewById(R.id.btnSave);
 
-        editTitle.setText(contact.getTitel());
-        editForename.setText(contact.getForename());
-        editSurname.setText(contact.getSurname());
-        editAdress.setText(contact.getAdress());
-        editZip.setText(contact.getZip());
-        editCity.setText(contact.getCity());
-        editCountry.setText(contact.getCountry());
+        editTitle.setText(shownContact.getTitel());
+        editForename.setText(shownContact.getForename());
+        editSurname.setText(shownContact.getSurname());
+        editAdress.setText(shownContact.getAdress());
+        editZip.setText(shownContact.getZip());
+        editCity.setText(shownContact.getCity());
+        editCountry.setText(shownContact.getCountry());
 
         final XStream xStream = new XStream();
         xStream.alias("contact", Contacts.class);
@@ -82,55 +84,65 @@ public class EditContactActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                contact.setTitel(editTitle.getText().toString());
-                contact.setForename(editForename.getText().toString());
-                contact.setSurname(editSurname.getText().toString());
-                contact.setAdress(editAdress.getText().toString());
-                contact.setCity(editCity.getText().toString());
-                contact.setZip(editZip.getText().toString());
-                contact.setCountry(editCountry.getText().toString());
+                shownContact.setTitel(editTitle.getText().toString());
+                shownContact.setForename(editForename.getText().toString());
+                shownContact.setSurname(editSurname.getText().toString());
+                shownContact.setAdress(editAdress.getText().toString());
+                shownContact.setCity(editCity.getText().toString());
+                shownContact.setZip(editZip.getText().toString());
+                shownContact.setCountry(editCountry.getText().toString());
 
 
                 /**** Saving Contact to XML ****/
 
-                String fileName;
-                String filePath;
+                String filePath = "/data/data/de.davidgollasch.emiexercise2/files/contacts.xml";
 
-                for (int i = 1; i <= 5; i++) {
+                try {
 
-                    fileName = "c" + Integer.toString(i) + ".xml";
-                    filePath = "/data/data/de.davidgollasch.emiexercise2/files/" + "c" + Integer.toString(i) + ".xml";
+                    contactContainer = (ArrayList<Contacts>) xStream.fromXML(MainActivity.getStringFromFile(filePath));
 
-                    try {
+                    ArrayList<Contacts> clonedContainer = (ArrayList<Contacts>) ((ArrayList<Contacts>) contactContainer).clone();
 
-                        Contacts parsedContact = (Contacts) xStream.fromXML(MainActivity.getStringFromFile(filePath));
 
-                        if (parsedContact.getID() == contact.getID()) {
+                    contactContainer.clear();
 
-                            String xml;
-                            FileOutputStream fOut;
+                    for (int i = 0; i < clonedContainer.size(); i++) {
 
-                            xml = xStream.toXML(contact);
-                            fOut = EditContactActivity.this.openFileOutput(fileName, Context.MODE_PRIVATE);
-                            fOut.write(xml.getBytes());
-                            fOut.close();
+                        if (clonedContainer.get(i).getID() == shownContact.getID()) {
+
+                            contactContainer.add(shownContact);
+
+                        } else {
+
+                            contactContainer.add(clonedContainer.get(i));
                         }
-
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (Exception e) {
-                        e.printStackTrace();
                     }
-                }
 
+                    String xml;
+                    FileOutputStream fOut;
+
+                    xml = xStream.toXML(contactContainer);
+                    fOut = EditContactActivity.this.openFileOutput("contacts.xml", Context.MODE_PRIVATE);
+                    fOut.write(xml.getBytes());
+                    fOut.close();
+
+                    //System.out.println(xml);
+
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 /**** END ****/
+
 
                 // Sending back Contact
                 Intent resultIntent = new Intent();
 
-                resultIntent.putExtra("contact", contact);
+                resultIntent.putExtra("contact", shownContact);
                 resultIntent.putExtra("oldName", oldName);
 
                 setResult(Activity.RESULT_OK, resultIntent);
